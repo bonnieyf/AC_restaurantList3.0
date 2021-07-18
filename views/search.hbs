@@ -16,16 +16,9 @@
   </div>
 </div>
 
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-md-10 col-12 mx-auto">
-      <a href="./shops/new" class="btn btn-major" style="float:right;">Create a Shop</a></div>
-    </div>
-  </div>
-</div>
 <!-- restaurant list -->
 <div class="container mt-5">
-  
+  <h4 class="text-center">以下是 <b style="color: #9b4b4b">"{{ keyword }}"</b> 的搜尋結果：</h4><br>
   <div class="row">
     <div class="col-md-10 col-12 mx-auto">
       <div class="card-columns">
@@ -45,18 +38,12 @@
                 <i class="fas fa-star fa-xs"></i>
               </span>
 
-
-              <a href="/shops/{{this._id}}/edit" class="btn btn-major btn-edit"><i class="fas fa-pen"></i> Edit</a>
-              <form action="/shops/{{ this._id }}/delete" method="POST" class="btn btn-major btn-delete">
-                <button type="submit"><i class="fas fa-trash-alt"></i></button>
-              </form>
             </div>
           </div>
-        
-        
+        </a>
 
         {{/each}}
       </div>
-     </div>
+    </div>
   </div>
 </div>

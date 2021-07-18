@@ -40,6 +40,42 @@ app.get('/shops/new' , (req, res)=>{
     return res.render('new');
 })
 
+app.get('/shops/:id' , (req, res)=>{
+    const id = req.params.id;
+    return Shop.findById(id)
+              .lean()
+              .then(shop => res.render('detail' ,{ shop }))
+              .catch(err => console.log(err))
+})
+
+app.get('/shops/:id/edit' , (req, res)=>{
+    const id = req.params.id;
+    return Shop.findById(id)
+              .lean()
+              .then(shop => res.render('edit' ,{ shop }))
+              .catch(err => console.log(err))
+})
+
+app.post('/shops/:id/edit' , (req, res)=>{
+    const id = req.params.id;
+    const name = req.body.name;
+    return Shop.findById(id)
+              .then(shop => {
+                shop.name = name;
+                return shop.save();
+              })
+              .then(() => res.redirect(`/shops/${id}`))
+              .catch(err => console.log(err))
+});
+
+app.post('/shops/:id/delete' , (req, res)=>{
+    const id = req.params.id;
+    return Shop.findById(id)
+              .then(shop => shop.remove())
+              .then(()=> res.redirect('/'))
+              .catch(err => console.log(err))
+})
+
 app.post('/shops', (req, res)=>{
     const body = req.body;
     const data = {
@@ -59,6 +95,22 @@ app.post('/shops', (req, res)=>{
 })
 
 
+
+
+app.get('/search', (req, res) => {
+    const keyword = req.query.keyword;
+
+    Shop.find()
+        .lean()
+        .then(shops => {
+            const result = shops.filter(shop => {
+                return shop.name.toLowerCase().includes(keyword.toLowerCase())
+            })
+
+            res.render('search', { shops: result, keyword: keyword })
+        })
+        .catch(err => console.log(err));
+  })
 
 
 app.listen(post ,()=>{

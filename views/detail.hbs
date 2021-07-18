@@ -1,0 +1,49 @@
+
+<h1 class="mb-1 restaurant-show-title">{{shop.name}}</h1>
+<div class="container">
+  <div class="row mb-4">
+    <div class="col-12">
+      <a href="/" class="btn btn-major">Back</button></a>
+      <a href="/shops/{{ shop._id }}/edit" class="btn btn-major" style="background:black; float:right;"><i class="fas fa-pen"></i> Edit</a>
+    </div>
+  </div>
+  <div class="row mb-5">
+    <div class="col-6">
+      <img class="rounded mx-auto d-block mb-4 w-100" src="{{shop.image}}" alt="{{shop.name}}" style="max-width: 600px;">
+    </div>
+    <div class="col-6">
+      <p class="mb-1">
+        <span class="text-secondary">
+          <i class="fas fa-utensils pr-2"></i>
+          類別：
+        </span>
+        {{shop.category}}
+      </p>
+
+      <p class="mb-1">
+        <span class="text-secondary">
+          <i class="fas fa-map-marker-alt pr-2"></i>
+          地址：
+        </span>
+        {{shop.location}}
+        <a href="{{shop.google_map}}" class="text-secondary" target="_blank">
+          <i class="fas fa-location-arrow pr-2 fa-xs"></i>
+        </a>
+      </p>
+
+      <p class="mb-1">
+        <span class="text-secondary">
+          <i class="fas fa-mobile-alt pr-2"></i>
+          電話：
+        </span>
+        {{shop.phone}}
+      </p>
+
+      <p class="mb-5 mt-5" class="text-info">
+        {{shop.description}}
+      </p>
+
+      
+    </div>
+  </div>
+</div>
