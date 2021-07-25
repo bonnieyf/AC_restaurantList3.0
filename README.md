@@ -35,7 +35,7 @@ $ git clone https://github.com/kusasen/AC_restaurantList3.0.git
 2. 安裝 node module
 
 ```bash
-$ cd AC_restaurantList2.0
+$ cd AC_restaurantList3.0
 $ npm install
 ```
 
