@@ -1,4 +1,5 @@
-![screencapture-localhost-3000-2021-07-18-21_11_56](https://user-images.githubusercontent.com/3711787/126068661-19f5d5a9-0219-4d7c-a557-546ba009ae43.png)
+![截圖 2021-07-25 下午7 54 28](https://user-images.githubusercontent.com/3711787/126898059-0d515a81-0914-407e-9237-9f92c9f5f485.png)
+
 
 # Restaurant List
 使用 Node.js + Express + express-handlebars + mongoDB 打造的餐廳清單網頁。
@@ -28,7 +29,7 @@
 1. 透過 https 取得此專案
 
 ```bash
-$ git clone https://github.com/kusasen/AC_restaurantList2.0.git
+$ git clone https://github.com/kusasen/AC_restaurantList3.0.git
 ```
 
 2. 安裝 node module
