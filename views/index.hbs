@@ -17,8 +17,17 @@
 </div>
 
 <div class="container mt-5">
-  <div class="row">
-    <div class="col-md-10 col-12 mx-auto">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+          <select class="custom-select" name="sortBy" onchange="window.location=`/sort/${this.value}`">
+            <option selected>Sort by</option>
+            <option value="name_asc">餐廳名(A-Z)</option>
+            <option value="name_desc">餐廳名(Z-A)</option>
+            <option value="category">餐廳類型</option>
+            <option value="rating">餐廳評分</option>
+          </select>
+    </div>
+    <div class="col-md-6">
       <a href="./shops/new" class="btn btn-major" style="float:right;">Create a Shop</a></div>
     </div>
   </div>
@@ -30,27 +39,29 @@
     <div class="col-md-10 col-12 mx-auto">
       <div class="card-columns">
         {{#each shops}}
-        <a href="/shops/{{this._id}}" class="text-secondary">
+        
           <div class="card mb-3">
-            <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
-            <div class="card-body p-3">
-              <h6 class="card-title mb-1">{{this.name}}</h6>
+            <a href="/shops/{{this._id}}" class="text-secondary">
+              <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
+              <div class="card-body p-3">
+                <h6 class="card-title mb-1">{{this.name}}</h6>
 
-              <div class="restaurant-category mb-1">
-                <i class="fas fa-utensils pr-2"></i> {{this.category}}
+                <div class="restaurant-category mb-1">
+                  <i class="fas fa-utensils pr-2"></i> {{this.category}}
+                </div>
+
+                <span class="badge badge-pill badge-danger font-weight-normal">
+                  {{this.rating}}
+                  <i class="fas fa-star fa-xs"></i>
+                </span>
+
+
+                <a href="/shops/{{this._id}}/edit" class="btn btn-major btn-edit"><i class="fas fa-pen"></i> Edit</a>
+                <form action="/shops/{{ this._id }}?_method=DELETE" method="POST" class="btn btn-major btn-delete">
+                  <button type="submit"><i class="fas fa-trash-alt"></i></button>
+                </form>
               </div>
-
-              <span class="badge badge-pill badge-danger font-weight-normal">
-                {{this.rating}}
-                <i class="fas fa-star fa-xs"></i>
-              </span>
-
-
-              <a href="/shops/{{this._id}}/edit" class="btn btn-major btn-edit"><i class="fas fa-pen"></i> Edit</a>
-              <form action="/shops/{{ this._id }}?_method=DELETE" method="POST" class="btn btn-major btn-delete">
-                <button type="submit"><i class="fas fa-trash-alt"></i></button>
-              </form>
-            </div>
+            </a>
           </div>
         
         
