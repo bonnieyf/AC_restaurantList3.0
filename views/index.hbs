@@ -47,7 +47,7 @@
 
 
               <a href="/shops/{{this._id}}/edit" class="btn btn-major btn-edit"><i class="fas fa-pen"></i> Edit</a>
-              <form action="/shops/{{ this._id }}/delete" method="POST" class="btn btn-major btn-delete">
+              <form action="/shops/{{ this._id }}?_method=DELETE" method="POST" class="btn btn-major btn-delete">
                 <button type="submit"><i class="fas fa-trash-alt"></i></button>
               </form>
             </div>

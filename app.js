@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const exphbs = require('express-handlebars');
+const methodOverride = require('method-override') 
+
 const app = express();
 const post = 3000;
 
@@ -28,6 +30,7 @@ app.set('view engine','hbs');
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(methodOverride('_method'))
 
 app.get('/', (req, res)=>{
     Shop.find()
@@ -56,7 +59,7 @@ app.get('/shops/:id/edit' , (req, res)=>{
               .catch(err => console.log(err))
 })
 
-app.post('/shops/:id/edit' , (req, res)=>{
+app.put('/shops/:id/' , (req, res)=>{
     const id = req.params.id;
     const name = req.body.name;
     return Shop.findById(id)
@@ -68,7 +71,7 @@ app.post('/shops/:id/edit' , (req, res)=>{
               .catch(err => console.log(err))
 });
 
-app.post('/shops/:id/delete' , (req, res)=>{
+app.delete('/shops/:id/' , (req, res)=>{
     const id = req.params.id;
     return Shop.findById(id)
               .then(shop => shop.remove())
